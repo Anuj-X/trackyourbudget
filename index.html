@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="auth-container" class="auth-container">
+        <h2>Welcome to Expense Tracker</h2>
+        <div id="auth-forms">
+            <div id="sign-in-form">
+                <h3>Sign In</h3>
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button onclick="signIn()">Sign In</button>
+                <p>Don’t have an account? <a onclick="toggleAuthForms()">Sign Up</a></p>
+            </div>
+            <div id="sign-up-form" style="display:none;">
+                <h3>Sign Up</h3>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button onclick="signUp()">Sign Up</button>
+                <p>Already have an account? <a onclick="toggleAuthForms()">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="app-container" class="app-container" style="display: none;">
+        <header>
+            <h1>Expense Tracker 🧾</h1>
+            <button onclick="logout()">Logout</button>
+        </header>
+
+        <!-- Modern Navigation Tabs -->
+        <nav class="navigation">
+            <button onclick="showPanel('set-budget-panel')">Set Budget 💸</button>
+            <button onclick="showPanel('add-expense-panel')">Add Expense 🛒</button>
+            <button onclick="showPanel('view-expenses-panel')">View Expenses 💵</button>
+            <button onclick="showPanel('chart-panel')">Expense Breakdown 📊</button>
+        </nav>
+
+        <!-- Panels -->
+        <!-- Set Budget Panel with Modal -->
+        <section id="set-budget-panel" class="panel">
+            <h2>Set Your Monthly Budget</h2>
+            <input type="number" id="budget-input" placeholder="Enter Your Budget" min="0">
+            <button class="submit-btn" onclick="setBudget()">Set Budget</button>
+            <p class="budget-display">Remaining Budget: <span id="remaining">₹ 0.00</span></p>
+            <p class="daily-display">Daily Allowance: ₹<span id="daily-budget">0.00</span></p>
+        </section>
+
+        <!-- Add Expense Panel with improved UI -->
+        <section id="add-expense-panel" class="panel" style="display: none;">
+            <h2>Add an Expense</h2>
+            <input type="text" id="description" placeholder="Expense Description">
+            <input type="number" id="amount" placeholder="Amount" min="0.01" step="0.01">
+            <select id="category">
+                <option value="Food">Food 🍔</option>
+                <option value="Transport">Transport 🚗</option>
+                <option value="Entertainment">Entertainment 🎮</option>
+                <option value="Utilities">Utilities 💡</option>
+                <option value="Shopping">Shopping 🛍️</option>
+                <option value="Health">Health 🏥</option>
+                <option value="Travel">Travel ✈️</option>
+                <option value="Other">Other 📝</option>
+            </select>
+            <input type="date" id="expense-date">
+            <button class="submit-btn" onclick="addExpense()">Add Expense</button>
+        </section>
+
+        <!-- View Expenses Panel with improved styling -->
+        <section id="view-expenses-panel" class="panel" style="display: none;">
+            <h2>Your Expenses</h2>
+            <ul id="expenses-list"></ul>
+            <p class="total-display">Total Expenses: <span id="total">₹ 0.00</span></p>
+        </section>
+
+        <!-- Expense Breakdown Panel with Pie Chart -->
+        <section id="chart-panel" class="panel" style="display: none;">
+            <h2>Expense Breakdown</h2>
+            <canvas id="expenseChart"></canvas>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

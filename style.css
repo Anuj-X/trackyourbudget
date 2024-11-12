@@ -1,0 +1,96 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    background: #1f2a47;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation Styles */
+.navigation {
+    display: flex;
+    justify-content: space-evenly; /* Space buttons evenly */
+    align-items: center; /* Center buttons vertically */
+    margin: 20px 0;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.navigation button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    cursor: pointer;
+    flex: 1 1 100%; /* Allow buttons to take full width and wrap */
+    margin: 5px 0; /* Space out buttons a little */
+}
+
+.navigation button:hover {
+    background: #0056b3;
+}
+
+/* Panels */
+.panel {
+    display: none;
+}
+
+.panel h2 {
+    color: #ffdd57;
+    text-align: center;
+}
+
+/* Expense List */
+#expenses-list {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#expenses-list li {
+    background: #2b2f3a;
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#expenses-list li:hover {
+    background: #36495d;
+}
+
+/* Button Styles */
+.submit-btn {
+    background-color: #ffdd57;
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #e6c94a;
+}
